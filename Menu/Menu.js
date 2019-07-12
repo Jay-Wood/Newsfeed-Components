@@ -17,9 +17,9 @@ let menuItems = [
   </div>
 */
 
+
 const header = document.querySelector(".header");
 const menuDiv = document.createElement("ul");
-const menuBtn = document.querySelector(".menu-button")
 
 function createMenu(array) {
    
@@ -38,20 +38,19 @@ function createMenu(array) {
     menuDiv.appendChild(newNavItem);
   });
 
+  /*Step 3: Using a DOM selector, select the menu button currently on the DOM.*/
+  const menuBtn = document.querySelector(".menu-button")
+
+  /*Step 4: add a click handler to the menu button, when clicked it should toggle the class 'menu--open' on the menu itself */
+  menuBtn.addEventListener("click", e => {
+    menuDiv.classList.toggle("menu--open")
+  })
+
+  //Step 5: return the menu component.
   return menuDiv
 }
 
 // createMenu(menuItems);
-header.appendChild(createMenu(menuItems));
-
-/*Step 3: Using a DOM selector, select the menu button currently on the DOM.*/
-menuBtn.addEventListener("click", e => {
-  menuDiv.classList.toggle(".menu--open")
-})
-
-/*Step 4: add a click handler to the menu button, when clicked it should toggle the class 'menu--open' on the menu itself */
-
-
-//Step 5: return the menu component.
 
 //Step 6: add the menu component to the DOM.
+header.appendChild(createMenu(menuItems));
